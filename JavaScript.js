@@ -4,7 +4,7 @@ const button = $('.button');
 const tabContainer = $('.tab-container');
 const tabDesc = $('.tab-desc')
 
-//.tab-container 자식요소의 길이만큼 
+//탭에 해당하는 paragraph를 출력시켜줌
 for (let i = 0; i < tabContainer.children().length; i++) {
   button.eq(i).on('click', function (){
   tabDesc.removeClass('show');
@@ -14,6 +14,3 @@ for (let i = 0; i < tabContainer.children().length; i++) {
 };
 
 
-// document.querySelectorAll('.button')[0].addEventListener('click', function () {
-//   document.querySelector('.btnBlueGreen').classList.
-// })
