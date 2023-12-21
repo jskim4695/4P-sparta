@@ -12,3 +12,8 @@ for (let i = 0; i < tabContainer.children().length; i++) {
 
 })
 };
+
+
+// document.querySelectorAll('.button')[0].addEventListener('click', function () {
+//   document.querySelector('.btnBlueGreen').classList.
+// })

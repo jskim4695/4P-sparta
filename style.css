@@ -48,6 +48,9 @@ button.button {
 .btnBlueGreen {
   background: #00AE68;
 }
+.btnBlueGreen {
+  background: #00AE68;
+}
 
 .btnLightBlue {
   background: #5DC8CD;
@@ -70,12 +73,20 @@ button.button {
   box-shadow: 0px 0px 0px 5px #21825B;
 }
 
+.btnBlueGreen.btnBorder:active {
+  background-color: #074a2f;
+}
+
 .btnLightBlue.btnBorder {
   box-shadow: 0px 0px 0px 0px #01939A;
 }
 
 .btnLightBlue.btnBorder:hover {
   box-shadow: 0px 0px 0px 5px #01939A;
+}
+
+.btnLightBlue.btnBorder:active {
+  background-color:  #01494d;
 }
 
 .btnOrange.btnBorder {
@@ -86,12 +97,20 @@ button.button {
   box-shadow: 0px 0px 0px 5px #A66615;
 }
 
+.btnOrange.btnBorder:active {
+  background-color:  #663b05;
+}
+
 .btnPurple.btnBorder {
   box-shadow: 0px 0px 0px 0px #6D184B;
 }
 
 .btnPurple.btnBorder:hover {
   box-shadow: 0px 0px 0px 5px #6D184B;
+}
+
+.btnPurple.btnBorder:active {
+  background-color:  #4a042e;
 }
 
 
