@@ -13,4 +13,13 @@ for (let i = 0; i < tabContainer.children().length; i++) {
 })
 };
 
+$(document).ready(function () {
+  let url = "http://spartacodingclub.shop/sparta_api/weather/seoul";
+  fetch(url).then(res => res.json()).then(data => {
+      let temp = data['temp']
+
+      $('#TT').append(temp);
+  })
+})
+
 
