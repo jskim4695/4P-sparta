@@ -151,3 +151,63 @@ button.button {
 .word-break {
   word-break : break-all;
 }
+   
+
+.main-image {
+  width: 30%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+  margin: 20px 0;
+
+}
+.main-text {
+  position: relative;
+  text-align: center;
+   background-image: linear-gradient(to right, transparent 50%, #6495ED 50%);    width: 2540px;    height: 550px;}
+
+.section1 {
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: black;
+}
+.section h2{
+display: block;
+padding: 95px 0 15px;
+color: white;
+text-align: center;
+font-size: 3em;
+}
+.section p{
+color: white;
+text-align: center;
+padding-bottom: 75px;
+}
+
+  nav {
+      text-align: center;
+  }
+
+  nav button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+  }
+
+  main {
+      padding: 20px;
+      text-align: center;
+  }
+
+  footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+  }
