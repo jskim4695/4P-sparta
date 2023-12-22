@@ -19,7 +19,12 @@ body {
   background: #ececec;
   background-color: cornflowerblue;
   overflow-y: scroll;
-  padding: 0;
+}
+
+.main-box {
+  background-color: cornflowerblue;
+  padding-right: 300px;
+  padding-left: 300px;;
 }
 
 
@@ -66,6 +71,21 @@ button.button {
   background: #A74982;
 }
 
+.btnPurple-clicked {
+  background-color:  #4a042e;
+}
+
+.btnBlueGreen-clicked {
+  background-color: #074a2f;
+}
+
+.btnLightBlue-clicked {
+  background-color:  #01494d;
+}
+
+.btnOrange-clicked {
+  background-color:  #663b05
+}
 /* BORDER */
 .btnBlueGreen.btnBorder {
   box-shadow: 0px 0px 0px 0px #21825B;
@@ -117,6 +137,7 @@ button.button {
 
 
 
+
 .tab-desc  {
   color: black;
   display: none;
@@ -133,14 +154,12 @@ button.button {
 .desc-container {
   width: 100%;
   height: 500px;
-  padding: 20px;
-  
+  padding: 100px;
 }
 
 .tab-container {
   width: 100%;
   height: 100px;
-  border-bottom: 1px solid black;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -164,13 +183,13 @@ button.button {
 .main-text {
   position: relative;
   text-align: center;
-   background-image: linear-gradient(to right, transparent 50%, #6495ED 50%);    width: 2540px;    height: 550px;}
+   background-image: linear-gradient(to right, transparent 50%, #6495ED 50%);    width: 100%;    height: 550px;
+   background-color: cornflowerblue;
+}
 
 .section1 {
-  position: absolute;
-  top: 50%;
-  left: 70%;
-  transform: translate(-50%, -50%);
+width: 500px;
+
   font-size: 20px;
   color: black;
 }
@@ -210,4 +229,8 @@ padding-bottom: 75px;
       color: white;
       text-align: center;
       padding: 20px 0;
+  }
+
+  .nav-link {
+    cursor: text;
   }

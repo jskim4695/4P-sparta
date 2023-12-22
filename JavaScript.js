@@ -4,14 +4,28 @@ const button = $('.button');
 const tabContainer = $('.tab-container');
 const tabDesc = $('.tab-desc')
 
+const clickedColor = ['btnBlueGreen-clicked','btnLightBlue-clicked','btnOrange-clicked','btnPurple-clicked']
+
+const deleteAll = clickedColor.join(' ')
 //탭에 해당하는 paragraph를 출력시켜줌
 for (let i = 0; i < tabContainer.children().length; i++) {
-  console.log("start")
-  button.eq(i).on('click', function () {
-    tabDesc.removeClass('show');
-    tabDesc.eq(i).addClass('show');
-  })
-  console.log("end")
+  button.eq(i).on('click', function (e) {
+    button.removeClass(deleteAll);
+    if (e.target == document.querySelectorAll('button')[i]) {
+      button.eq(i).addClass(`${clickedColor[i]}`);
+    }
+      tabDesc.slideUp();
+      if (tabDesc.eq(i).is(':visible')) {
+        button.eq(i).removeClass(`${clickedColor[i]}`);
+        return false
+  };
+      setTimeout(function () {
+        tabDesc.eq(i).slideDown();
+      }, 500);
+    
+    
+    
+  });
 };
 
 $(document).ready(function () {
