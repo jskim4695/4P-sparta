@@ -68,7 +68,7 @@ for (let i = 1; i <= 4; i++) {
             <p class="card-text">tmi : ${tmi}</p>
           </div>
           <div class="card-footer">
-            <a href="${url}"><small class="text-body-secondary">${url}</small>
+            <a href="${url}" target='_blank'><small class="text-body-secondary">${url}</small>
           </div>
         </div>
       </div>`;
