@@ -1,3 +1,4 @@
+
 // 클래스명 변수 선언
 const button = $('.button');
 const tabContainer = $('.tab-container');
@@ -18,7 +19,27 @@ for (let i = 0; i < tabContainer.children().length; i++) {
       button.eq(i).removeClass(`${clickedColor[i]}`);
       return false
     };
-    setTimeout(function () {
+    setTimeout(async function () {
+
+      const locations = ['daegu', 'incheon', 'seoul', 'busan']; // 지역 배열
+      const location = locations[i];
+
+      const apiUrl = `http://spartacodingclub.shop/sparta_api/weather/${location}`;
+
+      try {
+        const res = await fetch(apiUrl);
+        const data = await res.json();
+
+        //icon 변경하는 부분
+        let icon = data['icon']
+        $('#icon').attr('src', icon)
+
+        // 날씨 정보에 따라 스타일 설정
+        applyStyles(data['icon']);
+      } catch (error) {
+        console.error('An error occurred while fetching weather data:', error);
+      }
+      
       tabDesc.eq(i).slideDown();
     }, 500);
 
@@ -26,6 +47,40 @@ for (let i = 0; i < tabContainer.children().length; i++) {
 
   });
 };
+
+// 날씨 정보에 따라 스타일을 적용하는 함수
+function applyStyles(icon) {
+  let backgroundColor = '';
+  let navColor = '';
+
+    // 아이콘 값에 따라 스타일 설정
+    if (icon === 'http://openweathermap.org/img/w/01n.png'
+    || icon === 'http://openweathermap.org/img/w/02n.png'
+    || icon === 'http://openweathermap.org/img/w/01d.png'
+    || icon === 'http://openweathermap.org/img/w/02d.png') {
+      backgroundColor = '#6495ED';
+      navColor = 'white';
+    } else if (icon === 'http://openweathermap.org/img/w/03n.png'
+    || icon === 'http://openweathermap.org/img/w/04n.png'
+    || icon === 'http://openweathermap.org/img/w/03d.png'
+    || icon === 'http://openweathermap.org/img/w/04d.png') {
+      backgroundColor = 'gray';
+      navColor = '#C0C0C0';
+    } else if (icon === 'http://openweathermap.org/img/w/10n.png'
+    || icon === 'http://openweathermap.org/img/w/11n.png'
+    || icon === 'http://openweathermap.org/img/w/13n.png'
+    || icon === 'http://openweathermap.org/img/w/10d.png'
+    || icon === 'http://openweathermap.org/img/w/11d.png'
+    || icon === 'http://openweathermap.org/img/w/13d.png') {
+      backgroundColor = '#708090';
+      navColor = '#191970';
+    }
+
+    // style.css의 스타일 변경
+    $('.main-text, .main-box, .introduce, .section1, .img-box img').css('background-color', backgroundColor);
+    
+    $('.header').css('background-color', navColor);
+  }
 
 $(document).ready(function () {
   let url = "http://spartacodingclub.shop/sparta_api/weather/seoul";
