@@ -20,6 +20,11 @@ body {
   background-color: cornflowerblue;
   overflow-y: scroll;
   padding: 0;
+  margin: 0px;
+}
+
+h1, p {
+  margin-top: 0px;
 }
 
 
@@ -159,7 +164,7 @@ button.button {
 .tab-container {
   width: 100%;
   height: 100px;
-  border-bottom: 1px solid black;
+  border-top: 1px solid black;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -167,7 +172,9 @@ button.button {
 
 }
 
-;
+.tab-container button {
+  margin: 0 60px 0;
+}
 
 .word-break {
   word-break: break-all;
@@ -177,29 +184,33 @@ button.button {
 
 .main-text {
   text-align: center;
+  padding-right: 100px;
+  padding-left: 100px;
+  background: #2158b8;
   }
 
 
   .section1 {
-    width:50%; 
+    width: 100%; 
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    text-align:center;
+    justify-content: center;
+    align-items: center;
     line-height: 50px ;
     background:#6495ED;
-    height:700px;
+    height:100%;
     float:left;
     color: black;
     margin: 0px;
+    font-size: 24px;
 }
 
 .section1 h2 {
   display: block;
-  padding: 95px 0 15px;
+  padding: 0px 0 15px;
   color: white;
-  text-align: center;
   font-size: 3em;
+  
 }
 
 .section1 p {
@@ -241,22 +252,9 @@ button.button {
   
 }
 
-.img-box {
-  width: 50%;
-  float: left;
-}
-
-.img-box img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width:70%;
-  height: 100%;
-  max-width: 70%;
-  background:#6495ED;
-  overflow: hidden;
-  
-  
+.section1 img {
+  width: 20%;
+  height: 50%;
 }
 
   .nav-link {
@@ -280,7 +278,19 @@ main {
   .header {
     color: white;
     background-color: #100090;
-    height: 90px;
+    height: 70px;
+    padding-right: 133px;
+    padding-left: 100px;
+    padding-top: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    transition: all 1s;
+    margin-top: 0px;
+    
   }
 
 .card-body {
@@ -293,15 +303,14 @@ main {
   margin-right: 400px;
   overflow: hidden;
   position: relative;
+  margin-left: 540px;
 }
 
 .phrase div {
   display: block;
-  width: 200%;
+  width: 450%;
   height: 30px;
-  position: absolute;
-  overflow: hidden;
-  animation: phrase 10s linear infinite;
+  cursor: pointer;
 }
 
 .phrase span {
@@ -311,6 +320,16 @@ main {
 }
 
 @keyframes phrase {
-  0% { left: 0; }
+  0% { left: 0%; }
   100% { left: -100%; }
+}
+
+.footer-top {
+  width: 100%;
+  background-color: white;
+}
+
+.text-container {
+  padding: 0 100px 0 100px;
+  width: 100%;
 }

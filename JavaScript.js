@@ -39,14 +39,18 @@ for (let i = 0; i < tabContainer.children().length; i++) {
       } catch (error) {
         console.error('An error occurred while fetching weather data:', error);
       }
-      
       tabDesc.eq(i).slideDown();
-    }, 500);
+    }, 100);
 
 
 
   });
 };
+
+$(window).on(scroll, function () {
+  $('header').css('display', 'none')
+  console.log('hi');
+})
 
 // 날씨 정보에 따라 스타일을 적용하는 함수
 function applyStyles(icon) {
