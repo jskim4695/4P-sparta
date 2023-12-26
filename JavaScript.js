@@ -4,14 +4,28 @@ const button = $('.button');
 const tabContainer = $('.tab-container');
 const tabDesc = $('.tab-desc')
 
+const clickedColor = ['btnBlueGreen-clicked','btnLightBlue-clicked','btnOrange-clicked','btnPurple-clicked']
+
+const deleteAll = clickedColor.join(' ')
 //탭에 해당하는 paragraph를 출력시켜줌
 for (let i = 0; i < tabContainer.children().length; i++) {
-  console.log("start")
-  button.eq(i).on('click', function () {
-    tabDesc.removeClass('show');
-    tabDesc.eq(i).addClass('show');
-  })
-  console.log("end")
+  button.eq(i).on('click', function (e) {
+    button.removeClass(deleteAll);
+    if (e.target == document.querySelectorAll('button')[i]) {
+      button.eq(i).addClass(`${clickedColor[i]}`);
+    }
+      tabDesc.slideUp();
+      if (tabDesc.eq(i).is(':visible')) {
+        button.eq(i).removeClass(`${clickedColor[i]}`);
+        return false
+  };
+      setTimeout(function () {
+        tabDesc.eq(i).slideDown();
+      }, 500);
+    
+    
+    
+  });
 };
 
 $(document).ready(function () {
@@ -26,7 +40,7 @@ $(document).ready(function () {
 // Firebase SDK 라이브러리 가져오기
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import { doc,getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -59,7 +73,7 @@ for (let i = 1; i <= 4; i++) {
     let temp_html = `
       <div class="col">
         <div class="card h-100">
-          <img src="${image}" class="card-img-top" alt="...">
+            <img src="${image}" class="card-img-top" alt="image">
           <div class="card-body">
             <h5 class="card-name">이름 : ${name}</h5>
             <p class="card-text">역할 : ${role}</p>
@@ -68,7 +82,7 @@ for (let i = 1; i <= 4; i++) {
             <p class="card-text">tmi : ${tmi}</p>
           </div>
           <div class="card-footer">
-            <a href="${url}"><small class="text-body-secondary">${url}</small>
+            <a href="${url}" target='_blank'><small class="text-body-secondary">${url}</small>
           </div>
         </div>
       </div>`;

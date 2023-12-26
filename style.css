@@ -145,15 +145,16 @@ button.button {
   display: flex;
   justify-content: center;
   align-items: center;
-  
-};
+
+}
+
+;
 
 .word-break {
-  word-break : break-all;
+  word-break: break-all;
 }
   
-/* Main */
-
+/* main */
 .main-image {
   width:50%;
   height:700px; 
@@ -177,20 +178,22 @@ button.button {
     float:left;
     color: black;
 }
-.section h2{
-display: block;
-padding: 95px 0 15px;
-color: white;
-text-align: center;
-font-size: 3em;
-}
-.section p{
-color: white;
-text-align: center;
-padding-bottom: 75px;
+
+.section h2 {
+  display: block;
+  padding: 95px 0 15px;
+  color: white;
+  text-align: center;
+  font-size: 3em;
 }
 
-/* Foot */
+.section p {
+  color: white;
+  text-align: center;
+  padding-bottom: 75px;
+}
+
+/* footer */
   main {
       padding: 20px;
       text-align: center;
