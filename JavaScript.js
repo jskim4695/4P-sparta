@@ -40,7 +40,7 @@ $(document).ready(function () {
 // Firebase SDK 라이브러리 가져오기
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import { doc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { doc, getDoc ,updateDoc} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -96,4 +96,34 @@ for (let i = 1; i <= 4; i++) {
   }
 }
 
+$("#updatebtn").click(async function () {
+  let newid = $('#update_box #update_id').val();
+  let newimage = $('#update_box #update_image').val();
+  let newname = $('#update_box #update_name').val();
+  let newrole = $('#update_box #update_role').val();
+  let newcontent = $('#update_box #update_content').val();
+  let newmbti = $('#update_box #update_mbti').val();
+  let newtmi = $('#update_box #update_tmi').val();
+  let newurl = $('#update_box #update_url').val();
 
+  let newdoc = {
+    image: newimage,
+    name: newname,
+    role: newrole,
+    content: newcontent,
+    mbti: newmbti,
+    tmi: newtmi,
+    url: newurl
+  };
+
+  try {
+    // Assuming "test" is the collection name and "1" is the document ID, adjust accordingly
+    const updateDocRef = doc(db, "team", newid);
+    await updateDoc(updateDocRef, newdoc);
+    alert("Update complete");
+    window.location.reload();
+  } catch (error) {
+    console.error("Error updating document: ", error);
+    alert("Error updating document. Please try again.");
+  }
+});
