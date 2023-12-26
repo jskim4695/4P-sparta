@@ -150,7 +150,7 @@ button.button {
 .desc-container {
   width: 100%;
   height: auto;
-  padding: 20px;
+  padding-left: 20px;
   max-width: 400px;
   
   
@@ -225,7 +225,11 @@ button.button {
 
 .card-div {
   height: 600px;
+  padding-left: 300px;
+  padding-right: 100px;
 }
+
+
 
 .introduce_desc {
   display: flex;
@@ -253,4 +257,36 @@ button.button {
   overflow: hidden;
   
   
+}
+
+.card-body {
+  width: 80%;
+}
+
+.phrase {
+  height: 40px;
+  width: 400px;
+  margin-right: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.phrase div {
+  display: block;
+  width: 200%;
+  height: 30px;
+  position: absolute;
+  overflow: hidden;
+  animation: phrase 10s linear infinite;
+}
+
+.phrase span {
+  font-size: 24px;
+  float: left;
+  width: 50%;
+}
+
+@keyframes phrase {
+  0% { left: 0; }
+  100% { left: -100%; }
 }
