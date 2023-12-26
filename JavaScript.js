@@ -4,7 +4,7 @@ const button = $('.button');
 const tabContainer = $('.tab-container');
 const tabDesc = $('.tab-desc')
 
-const clickedColor = ['btnBlueGreen-clicked','btnLightBlue-clicked','btnOrange-clicked','btnPurple-clicked']
+const clickedColor = ['clickedColor-BlueGreen','clickedColor-LightBlue','clickedColor-Orange','clickedColor-Purple']
 
 const deleteAll = clickedColor.join(' ')
 //탭에 해당하는 paragraph를 출력시켜줌
@@ -80,6 +80,8 @@ for (let i = 1; i <= 4; i++) {
             <p class="card-text">mbti : ${mbti}</p>
             <p class="card-text">comment : ${content}</p>
             <p class="card-text">tmi : ${tmi}</p>
+            <div style="clear: both;"></div>
+
           </div>
           <div class="card-footer">
             <a href="${url}" target='_blank'><small class="text-body-secondary">${url}</small>
