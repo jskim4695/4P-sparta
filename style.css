@@ -279,45 +279,37 @@ main {
     color: white;
     background-color: #100090;
     height: 70px;
-    padding-right: 133px;
-    padding-left: 100px;
     padding-top: 0px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
     z-index: 5;
     transition: all 1s;
     margin-top: 0px;
+    width: 100vw ;
+    justify-content: center;
+    position: fixed;
     
   }
 
+  li img {
+    display: block;
+    margin-right: 200px;
+  }
+
+  .header-box {
+    width: 80%;
+    height: 1px;
+  }
 .card-body {
   width: 80%;
 }
 
-.phrase {
-  height: 40px;
-  width: 400px;
-  margin-right: 400px;
-  overflow: hidden;
-  position: relative;
-  margin-left: 540px;
+.nav_link {
+  float: right;
 }
 
-.phrase div {
-  display: block;
-  width: 450%;
-  height: 30px;
-  cursor: pointer;
-}
 
-.phrase span {
-  font-size: 24px;
-  float: left;
-  width: 50%;
-}
+
+
 
 @keyframes phrase {
   0% { left: 0%; }

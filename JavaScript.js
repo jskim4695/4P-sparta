@@ -47,10 +47,12 @@ for (let i = 0; i < tabContainer.children().length; i++) {
   });
 };
 
-$(window).on(scroll, function () {
-  $('header').css('display', 'none')
-  console.log('hi');
-})
+// $(document).ready(function() {
+//   $(window).on('scroll', function (e) {
+//       $('header').css('display', 'none');
+//       console.log('hi');
+//   });
+// });
 
 // 날씨 정보에 따라 스타일을 적용하는 함수
 function applyStyles(icon) {
