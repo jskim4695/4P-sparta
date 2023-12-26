@@ -151,28 +151,31 @@ button.button {
 .word-break {
   word-break : break-all;
 }
-   
+  
+/* Main */
 
 .main-image {
-  width: 30%;
-  height: 500px;
-  object-fit: cover;
-  display: block;
-  margin: 20px 0;
-
+  width:50%;
+  height:700px; 
+  float:right;
+  background:#6495ED;
 }
 .main-text {
-  position: relative;
   text-align: center;
-   background-image: linear-gradient(to right, transparent 50%, #6495ED 50%);    width: 2540px;    height: 550px;}
+  }
 
-.section1 {
-  position: absolute;
-  top: 50%;
-  left: 70%;
-  transform: translate(-50%, -50%);
-  font-size: 20px;
-  color: black;
+
+  .section1 {
+    width:50%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    text-align:center;
+    line-height: 50px ;
+    background:#6495ED;
+    height:700px;
+    float:left;
+    color: black;
 }
 .section h2{
 display: block;
@@ -187,19 +190,7 @@ text-align: center;
 padding-bottom: 75px;
 }
 
-  nav {
-      text-align: center;
-  }
-
-  nav button {
-      margin: 0 10px;
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
-  }
-
+/* Foot */
   main {
       padding: 20px;
       text-align: center;
