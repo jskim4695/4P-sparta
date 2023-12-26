@@ -1,10 +1,9 @@
-
 // 클래스명 변수 선언
 const button = $('.button');
 const tabContainer = $('.tab-container');
 const tabDesc = $('.tab-desc')
 
-const clickedColor = ['clickedColor-BlueGreen','clickedColor-LightBlue','clickedColor-Orange','clickedColor-Purple']
+const clickedColor = ['btnBlueGreen-clicked', 'btnLightBlue-clicked', 'btnOrange-clicked', 'btnPurple-clicked']
 
 const deleteAll = clickedColor.join(' ')
 //탭에 해당하는 paragraph를 출력시켜줌
@@ -19,27 +18,7 @@ for (let i = 0; i < tabContainer.children().length; i++) {
       button.eq(i).removeClass(`${clickedColor[i]}`);
       return false
     };
-    setTimeout(async function () {
-
-      const locations = ['daegu', 'incheon', 'seoul', 'busan']; // 지역 배열
-      const location = locations[i];
-
-      const apiUrl = `http://spartacodingclub.shop/sparta_api/weather/${location}`;
-
-      try {
-        const res = await fetch(apiUrl);
-        const data = await res.json();
-
-        //icon 변경하는 부분
-        let icon = data['icon']
-        $('#icon').attr('src', icon)
-
-        // 날씨 정보에 따라 스타일 설정
-        applyStyles(data['icon']);
-      } catch (error) {
-        console.error('An error occurred while fetching weather data:', error);
-      }
-      
+    setTimeout(function () {
       tabDesc.eq(i).slideDown();
     }, 500);
 
@@ -48,44 +27,20 @@ for (let i = 0; i < tabContainer.children().length; i++) {
   });
 };
 
-// 날씨 정보에 따라 스타일을 적용하는 함수
-function applyStyles(icon) {
-  let backgroundColor = '';
-  let navColor = '';
+$(document).ready(function () {
+  let url = "http://spartacodingclub.shop/sparta_api/weather/seoul";
+  fetch(url).then(res => res.json()).then(data => {
+    let temp = data['temp']
 
-    // 아이콘 값에 따라 스타일 설정
-    if (icon === 'http://openweathermap.org/img/w/01n.png'
-    || icon === 'http://openweathermap.org/img/w/02n.png'
-    || icon === 'http://openweathermap.org/img/w/01d.png'
-    || icon === 'http://openweathermap.org/img/w/02d.png') {
-      backgroundColor = '#6495ED';
-      navColor = 'white';
-    } else if (icon === 'http://openweathermap.org/img/w/03n.png'
-    || icon === 'http://openweathermap.org/img/w/04n.png'
-    || icon === 'http://openweathermap.org/img/w/03d.png'
-    || icon === 'http://openweathermap.org/img/w/04d.png') {
-      backgroundColor = 'gray';
-      navColor = '#C0C0C0';
-    } else if (icon === 'http://openweathermap.org/img/w/10n.png'
-    || icon === 'http://openweathermap.org/img/w/11n.png'
-    || icon === 'http://openweathermap.org/img/w/13n.png'
-    || icon === 'http://openweathermap.org/img/w/10d.png'
-    || icon === 'http://openweathermap.org/img/w/11d.png'
-    || icon === 'http://openweathermap.org/img/w/13d.png') {
-      backgroundColor = '#708090';
-      navColor = '#191970';
-    }
-
-    // style.css의 스타일 변경
-    $('.main-text, .main-box, .introduce, .section1, .img-box img').css('background-color', backgroundColor);
-    
-    $('.header').css('background-color', navColor);
-  }
+    $('#TT').append(temp);
+  })
+})
 
 // Firebase SDK 라이브러리 가져오기
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { doc, getDoc ,updateDoc} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -120,13 +75,11 @@ for (let i = 1; i <= 4; i++) {
         <div class="card h-100">
             <img src="${image}" class="card-img-top" alt="image">
           <div class="card-body">
-            <h5 class="card-name">이름 : ${name}</h5>
-            <p class="card-text">역할 : ${role}</p>
-            <p class="card-text">mbti : ${mbti}</p>
-            <p class="card-text">comment : ${content}</p>
-            <p class="card-text">tmi : ${tmi}</p>
-            <div style="clear: both;"></div>
-
+            <h5 class="card-name">Name : ${name}</h5>
+            <p class="card-text">Role : ${role}</p>
+            <p class="card-text">MBTI : ${mbti}</p>
+            <p class="card-text">Comment : ${content}</p>
+            <p class="card-text">TMI : ${tmi}</p>
           </div>
           <div class="card-footer">
             <a href="${url}" target='_blank'><small class="text-body-secondary">${url}</small>
@@ -172,3 +125,5 @@ $("#updatebtn").click(async function () {
     alert("Error updating document. Please try again.");
   }
 });
+
+
