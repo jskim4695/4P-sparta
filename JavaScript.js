@@ -140,7 +140,7 @@ for (let i = 0; i < tabContainer.children().length; i++) {
 
       let temp_html = `
     <div class="card_div" style="margin: 0 auto;">
-      <div class="card" style="width:700px;">
+      <div class="card" style="width:720px;">
         <div class="card-body" style="display: flex; gap: 250px;">
           <div class="img_box" style="width: 10%; height: 150px;">
             <img src="${image}" class="card-img-top" alt="image" style="height: 150px; width: auto; object-fit:;">
