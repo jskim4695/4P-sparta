@@ -21,7 +21,7 @@ for (let i = 0; i < tabContainer.children().length; i++) {
     };
     setTimeout(async function () {
 
-      const locations = ['daegu', 'incheon', 'seoul', 'busan']; // 지역 배열
+      const locations = ['daegu', 'gwangju', 'seoul', 'busan']; // 지역 배열
       const location = locations[i];
 
       const apiUrl = `http://spartacodingclub.shop/sparta_api/weather/${location}`;
@@ -88,14 +88,14 @@ function applyStyles(icon) {
     $('.header').css('background-color', navColor);
   }
 
-$(document).ready(function () {
+/* $(document).ready(function () {
   let url = "http://spartacodingclub.shop/sparta_api/weather/seoul";
   fetch(url).then(res => res.json()).then(data => {
     let temp = data['temp']
 
     $('#TT').append(temp);
   })
-})
+}) */
 
 // Firebase SDK 라이브러리 가져오기
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
@@ -131,22 +131,26 @@ for (let i = 1; i <= 4; i++) {
     let tmi = row['tmi'];
     let role = row['role'];
 
-    let temp_html = `
-      <div class="col">
-        <div class="card h-100">
-            <img src="${image}" class="card-img-top" alt="image">
-          <div class="card-body">
+      let temp_html = `
+      <div class="card_div" style="margin: 0 auto;">
+      <div class="card" style="width:700px;">
+        <div class="card-body" style="display: flex; gap: 250px;">
+          <div class="img_box" style="width: 10%; height: 150px;">
+            <img src="${image}" class="card-img-top" alt="image" style="height: 150px; width: auto; object-fit:;">
+          </div>
+          <div class="card-body-content" style="width: 85%; height: auto;">
             <h5 class="card-name">Name : ${name}</h5>
             <p class="card-text">Role : ${role}</p>
             <p class="card-text">MBTI : ${mbti}</p>
             <p class="card-text">Comment : ${content}</p>
             <p class="card-text">TMI : ${tmi}</p>
           </div>
-          <div class="card-footer">
-            <a href="${url}" target='_blank'><small class="text-body-secondary">${url}</small>
-          </div>
         </div>
-      </div>`;
+        <div class="card-footer">
+          <a href="${url}" target="_blank"><small class="text-body-secondary">${url}</small></a>
+        </div>
+      </div>
+    </div>`;
 
     // Use the specific id to append to the corresponding element
     $(`#${i}`).append(temp_html);
