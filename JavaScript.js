@@ -41,9 +41,6 @@ for (let i = 0; i < tabContainer.children().length; i++) {
       }
       tabDesc.eq(i).slideDown();
     }, 100);
-
-
-
   });
 };
 
@@ -127,7 +124,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // Loop through ids 1 to 4
-for (let i = 1; i <= 4; i++) {
+for (let i = 0; i < tabContainer.children().length; i++) {
   const dbdoc = doc(db, "team", String(i));
   const docSnap = await getDoc(dbdoc);
 
@@ -142,7 +139,7 @@ for (let i = 1; i <= 4; i++) {
     let role = row['role'];
 
       let temp_html = `
-      <div class="card_div" style="margin: 0 auto;">
+    <div class="card_div" style="margin: 0 auto;">
       <div class="card" style="width:700px;">
         <div class="card-body" style="display: flex; gap: 250px;">
           <div class="img_box" style="width: 10%; height: 150px;">
@@ -156,14 +153,15 @@ for (let i = 1; i <= 4; i++) {
             <p class="card-text">TMI : ${tmi}</p>
           </div>
         </div>
-        <div class="card-footer">
-          <a href="${url}" target="_blank"><small class="text-body-secondary">${url}</small></a>
-        </div>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal">
         Edit
       </button>
       </div>
     </div>`;
+    // 필요시 temp_html로 다시 넣기.
+    // <div class="card-footer">
+    //     <a href="${url}" target="_blank"><small class="text-body-secondary">${url}</small></a>
+    // </div> 
 
     // Use the specific id to append to the corresponding element
     $(`#${i}`).append(temp_html);
@@ -180,7 +178,7 @@ $("#updatebtn").click(async function () {
   let newcontent = $('#update_box #update_content').val();
   let newmbti = $('#update_box #update_mbti').val();
   let newtmi = $('#update_box #update_tmi').val();
-  let newurl = $('#update_box #update_url').val();
+  // let newurl = $('#update_box #update_url').val();
 
   let newdoc = {
     image: newimage,
@@ -189,7 +187,7 @@ $("#updatebtn").click(async function () {
     content: newcontent,
     mbti: newmbti,
     tmi: newtmi,
-    url: newurl
+    // url: newurl
   };
 
   try {
