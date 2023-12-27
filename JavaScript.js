@@ -134,7 +134,7 @@ for (let i = 0; i < tabContainer.children().length; i++) {
     let name = row['name'];
     let content = row['content'];
     let mbti = row['mbti'];
-    let url = row['url'];
+    // let url = row['url'];
     let tmi = row['tmi'];
     let role = row['role'];
 
@@ -158,13 +158,25 @@ for (let i = 0; i < tabContainer.children().length; i++) {
       </button>
       </div>
     </div>`;
-    // 필요시 temp_html로 다시 넣기.
+    // 필요시 temp_html로 다시 넣기. <button type 위로 
     // <div class="card-footer">
     //     <a href="${url}" target="_blank"><small class="text-body-secondary">${url}</small></a>
     // </div> 
 
     // Use the specific id to append to the corresponding element
     $(`#${i}`).append(temp_html);
+
+    $(`#${i} button`).click(function () {
+      // Set the form values based on the clicked card's data
+      document.getElementById('update_image').value = image;
+      document.getElementById('update_name').value = name;
+      document.getElementById('update_role').value = role;
+      document.getElementById('update_content').value = content;
+      document.getElementById('update_tmi').value = tmi;
+      document.getElementById('update_mbti').value = mbti;
+      // Update the ID input field with the correct document ID
+      document.getElementById('update_id').value = i;
+    });
   } else {
     console.log(`No such document for id ${i}!`);
   }
