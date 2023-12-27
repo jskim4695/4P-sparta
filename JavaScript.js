@@ -137,27 +137,46 @@ for (let i = 0; i < tabContainer.children().length; i++) {
     // let url = row['url'];
     let tmi = row['tmi'];
     let role = row['role'];
-
-      let temp_html = `
-    <div class="card_div" style="margin: 0 auto;">
-      <div class="card" style="width:720px;">
-        <div class="card-body" style="display: flex; gap: 250px;">
-          <div class="img_box" style="width: 10%; height: 150px;">
-            <img src="${image}" class="card-img-top" alt="image" style="height: 150px; width: auto; object-fit:;">
-          </div>
-          <div class="card-body-content" style="width: 85%; height: auto;">
-            <h5 class="card-name">Name : ${name}</h5>
-            <p class="card-text">Role : ${role}</p>
-            <p class="card-text">MBTI : ${mbti}</p>
-            <p class="card-text">Comment : ${content}</p>
-            <p class="card-text">TMI : ${tmi}</p>
-          </div>
-        </div>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal">
-        Edit
-      </button>
+    let temp_html = `
+      <div class="desc_box">
+      <div class="img_box"><img src="${image}" alt="">
       </div>
-    </div>`;
+      <div class="desc">
+      <h5 class="card-name">Name : ${name}</h5>
+      <p class="card-text">Role : ${role}</p>
+      <p class="card-text">MBTI : ${mbti}</p>
+      <p class="card-text">Comment : ${content}</p>
+      <p class="card-text">TMI : ${tmi}</p></div>
+      <div style="clear: both;"></div>
+      <button type="button" class="btn btn-primary edit-btn" data-toggle="modal" data-target="#updateModal">Edit</button>
+      </div>`
+    //   let temp_html = `
+    // // <div class="card_div" style="width:500px; height:auto;">
+    // //   <div class="card"">
+    // //   <div>
+    // //     <div class="card-body">
+    // //       <div class="img_box">
+    // //         <img src="${image} style="width:50%">
+    // //       </div>
+          
+    // //       <div class="card-body-content">
+    // //         <h5 class="card-name">Name : ${name}</h5>
+    // //         <p class="card-text">Role : ${role}</p>
+    // //         <p class="card-text">MBTI : ${mbti}</p>
+    // //         <p class="card-text">Comment : ${content}</p>
+    // //         <p class="card-text">TMI : ${tmi}</p>
+    // //         </div>
+    // //       </div>
+    // //       </div>
+    // //       <button style="margin-top:122px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal">
+    // //       Edit
+    // //       </button>
+    // //       </div>
+    // // </div>`;
+
+
+
+
     // 필요시 temp_html로 다시 넣기. <button type 위로 
     // <div class="card-footer">
     //     <a href="${url}" target="_blank"><small class="text-body-secondary">${url}</small></a>
