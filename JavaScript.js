@@ -58,6 +58,8 @@ for (let i = 0; i < tabContainer.children().length; i++) {
 function applyStyles(icon) {
   let backgroundColor = '';
   let navColor = '';
+  let paddingColor = '';
+  let fontColor = '';
 
     // 아이콘 값에 따라 스타일 설정
     if (icon === 'http://openweathermap.org/img/w/01n.png'
@@ -65,13 +67,16 @@ function applyStyles(icon) {
     || icon === 'http://openweathermap.org/img/w/01d.png'
     || icon === 'http://openweathermap.org/img/w/02d.png') {
       backgroundColor = '#6495ED';
+      paddingColor = '#95b7f5';
       navColor = 'white';
     } else if (icon === 'http://openweathermap.org/img/w/03n.png'
     || icon === 'http://openweathermap.org/img/w/04n.png'
     || icon === 'http://openweathermap.org/img/w/03d.png'
     || icon === 'http://openweathermap.org/img/w/04d.png') {
       backgroundColor = 'gray';
+      paddingColor = '#696666';
       navColor = '#C0C0C0';
+      fontColor = 'white'
     } else if (icon === 'http://openweathermap.org/img/w/10n.png'
     || icon === 'http://openweathermap.org/img/w/11n.png'
     || icon === 'http://openweathermap.org/img/w/13n.png'
@@ -79,13 +84,18 @@ function applyStyles(icon) {
     || icon === 'http://openweathermap.org/img/w/11d.png'
     || icon === 'http://openweathermap.org/img/w/13d.png') {
       backgroundColor = '#708090';
+      paddingColor = '#95b7f5';
       navColor = '#191970';
     }
 
     // style.css의 스타일 변경
-    $('.main-text, .main-box, .introduce, .section1, .img-box img').css('background-color', backgroundColor);
+    $('.main-box, .introduce, .section1, .img-box img').css('background-color', backgroundColor);
+
+    $('.main-text').css('background', paddingColor)
     
     $('.header').css('background-color', navColor);
+
+    $('.introduce_desc').css('color', fontColor)
   }
 
 /* $(document).ready(function () {
@@ -149,6 +159,9 @@ for (let i = 1; i <= 4; i++) {
         <div class="card-footer">
           <a href="${url}" target="_blank"><small class="text-body-secondary">${url}</small></a>
         </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal">
+        Edit
+      </button>
       </div>
     </div>`;
 
